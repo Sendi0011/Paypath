@@ -45,6 +45,11 @@ export function WalletProvider({ children }: { children: ReactNode }) {
   const [chainId, setChainId] = useState<number | null>(null);
   const [isConnecting, setIsConnecting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const formatAddress = (addr: string) =>
     `${addr.slice(0, 6)}...${addr.slice(-4)}`;
@@ -62,6 +67,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const connect = useCallback(async () => {
+    if (!mounted || typeof window === 'undefined') return;
     const eth = (window as any).ethereum;
     if (!eth) {
       setError('No wallet detected. Please install Coinbase Wallet or MetaMask.');
@@ -77,7 +83,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     } finally {
       setIsConnecting(false);
     }
-  }, [setupProvider]);
+  }, [setupProvider, mounted]);
 
   const disconnect = useCallback(() => {
     setAddress(null);
@@ -87,6 +93,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const switchToBase = useCallback(async () => {
+    if (typeof window === 'undefined') return;
     const eth = (window as any).ethereum;
     if (!eth) return;
     try {
@@ -103,6 +110,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
 
   // Auto-reconnect
   useEffect(() => {
+    if (!mounted || typeof window === 'undefined') return;
     const eth = (window as any).ethereum;
     if (!eth) return;
     eth.request({ method: 'eth_accounts' }).then((accounts: string[]) => {
@@ -119,7 +127,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
       eth.removeListener('accountsChanged', handleAccounts);
       eth.removeListener('chainChanged', handleChain);
     };
-  }, [setupProvider, disconnect]);
+  }, [setupProvider, disconnect, mounted]);
 
   return (
     <WalletContext.Provider value={{
