@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useApp } from '../context/AppContext';
+import { useApp } from '../../context/AppContext';
 import {
   Shield, CheckCircle, ExternalLink, Copy, Share2,
   Lock, ArrowLeft, Zap, TrendingUp, Calendar

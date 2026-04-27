@@ -1,4 +1,4 @@
-import Onboard from '../../src/pages/Onboard';
+import Onboard from '../../src/components/pages/Onboard';
 
 export default function OnboardPage() {
   return <Onboard />;

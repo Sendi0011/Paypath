@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useWallet } from '../context/WalletContext';
+import { useWallet } from '../../context/WalletContext';
 import {
   ArrowRight, Shield, Zap, Globe, TrendingUp, CheckCircle,
   Users, DollarSign, Clock, Lock, ExternalLink, ChevronRight,

@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useWallet } from '../context/WalletContext';
-import { useApp } from '../context/AppContext';
+import { useWallet } from '../../context/WalletContext';
+import { useApp } from '../../context/AppContext';
 import { Building2, User, CheckCircle, ArrowRight, Zap } from 'lucide-react';
 import './Dashboard.css';
 

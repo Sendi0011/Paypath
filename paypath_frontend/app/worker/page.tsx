@@ -1,4 +1,4 @@
-import WorkerDashboard from '../../src/pages/WorkerDashboard';
+import WorkerDashboard from '../../src/components/pages/WorkerDashboard';
 
 export default function WorkerPage() {
   return <WorkerDashboard />;

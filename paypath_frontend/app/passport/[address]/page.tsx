@@ -1,4 +1,4 @@
-import PassportPage from '../../../src/pages/PassportPage';
+import PassportPage from '../../../src/components/pages/PassportPage';
 
 export default async function PassportAddressPage({
   params,

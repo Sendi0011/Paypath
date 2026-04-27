@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useApp } from '../context/AppContext';
-import { useWallet } from '../context/WalletContext';
+import { useApp } from '../../context/AppContext';
+import { useWallet } from '../../context/WalletContext';
 import {
   Shield, CheckCircle, ExternalLink, CreditCard, DollarSign, Share2,
   TrendingUp, Lock, Zap, X, ArrowDownCircle, RefreshCw, FileText,

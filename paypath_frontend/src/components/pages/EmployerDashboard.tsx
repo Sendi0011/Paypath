@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useApp } from '../context/AppContext';
-import { useWallet } from '../context/WalletContext';
-import { useAgent } from '../hooks/useAgent';
+import { useApp } from '../../context/AppContext';
+import { useWallet } from '../../context/WalletContext';
+import { useAgent } from '../../hooks/useAgent';
 import {
   Plus, Users, DollarSign, Clock, TrendingUp, Send,
   CheckCircle, AlertCircle, ExternalLink, Zap, X,
