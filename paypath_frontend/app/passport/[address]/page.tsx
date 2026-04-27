@@ -1,5 +1,11 @@
 import PassportPage from '../../../src/pages/PassportPage';
 
-export default function PassportAddressPage({ params }: { params: { address: string } }) {
-  return <PassportPage address={params.address} />;
+export default async function PassportAddressPage({
+  params,
+}: {
+  params: Promise<{ address: string }>;
+}) {
+  const { address } = await params;
+
+  return <PassportPage address={address} />;
 }
